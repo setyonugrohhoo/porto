@@ -12,19 +12,19 @@ const projects = {
     1: {
         title: "Website E-Commerce Modern",
         tech: ["HTML5", "CSS3", "JavaScript", "PHP"],
-        image: "gambar/projek-1.jpg", // Nama file gambar proyek 1
+        image: "projek-1.jpg", // Nama file gambar proyek 1
         desc: "Ini adalah proyek website toko online full-stack. Pengunjung dapat melakukan checkout, pembayaran via API gateway, dan admin panel untuk mengelola stok."
     },
     2: {
         title: "Aplikasi Manajemen Tugas",
         tech: ["React Native", "Firebase", "Redux"],
-        image: "gambar/projek-2.jpg", // Nama file gambar proyek 2
+        image: "projek-2.jpg", // Nama file gambar proyek 2
         desc: "Aplikasi mobile produktivitas yang membantu pengguna mengatur jadwal harian. Dilengkapi fitur notifikasi push dan sinkronisasi cloud real-time."
     },
     3: {
         title: "Sesi Fotografi Komersial",
         tech: ["Sony Alpha", "Lightroom", "Photoshop"],
-        image: "gambar/projek-3.jpg", // Nama file gambar proyek 3
+        image: "projek-3.jpg", // Nama file gambar proyek 3
         desc: "Sesi foto untuk brand makanan lokal. Fokus pada pencahayaan natural dan color grading yang menggugah selera untuk kebutuhan media sosial."
     }
 };
