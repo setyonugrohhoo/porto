@@ -3,142 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Web Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Portofolio Saya | Setyo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="cursor"></div>
-    <div class="cursor2"></div>
-
-    <nav class="navbar">
-        <div class="logo">&lt;Dev/&gt;</div>
-        <ul class="nav-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#projects">Karya</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h3>Welcome</h3>
-            <h1 class="glitch" data-text="Nama Anda">Setyo Nugroho</h1>
-            <p>Mahasiswa <span class="highlight">Teknik Informatika</span> & <span class="highlight">Web Developer</span></p>
-            <div class="typing-container">
-                <span class="typing-text"></span><span class="cursor-blink">|</span>
-            </div>
-            <a href="#projects" class="btn-main">Lihat Karya Saya</a>
-        </div>
+    <div id="main-view">
         
-        <div class="hero-visual">
-            <div class="code-card">
-                <div class="card-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="card-body">
-                    <p><span class="code-blue">const</span> student = {</p>
-                    <p class="indent">university: <span class="code-green">'Telkom University'</span>,</p>
-                    <p class="indent">major: <span class="code-green">'S1 Informatika'</span>,</p>
-                    <p class="indent">passion: [<span class="code-green">'Coding'</span>, <span class="code-green">'Coffee'</span>]</p>
-                    <p>};</p>
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">Porto<span style="color:white">Saya.</span></div>
+                    <div class="nav-links">
+                        <a href="#home">Beranda</a>
+                        <a href="#about">Tentang</a>
+                        <a href="#portfolio">Karya</a>
+                        <a href="#contact">Kontak</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h4>Halo, selamat datang!</h4>
+                    <h1>Saya <span id="myName">Nama Anda</span><br>Seorang Kreator Digital</h1>
+                    <span class="typing-text" id="typing-element"></span>
+                    <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
+                    <a href="#" onclick="openWhatsApp()" class="btn btn-outline">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Saya
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section reveal">
-        <h2 class="section-title">Tentang Saya</h2>
-        <div class="about-container">
+        <section id="about" class="about-section">
+    <div class="container">
+        <div class="about-flex">
+            <div class="about-image">
+                <img src="gambar/profil.jpg" alt="Setyo Nugroho">
+            </div>
             <div class="about-text">
-                <p>Saya adalah seorang pengembang web yang bersemangat dalam menciptakan antarmuka digital yang interaktif dan fungsional.</p>
-                <br>
-                <p>Saat ini saya sedang menempuh pendidikan <strong>S1 Teknik Informatika</strong> di <strong>Telkom University</strong>. Saya memadukan logika pemrograman yang kuat dengan desain kreatif untuk memecahkan masalah.</p>
+                <h2 class="section-title" style="text-align: left; margin-top: 0;">Tentang Saya</h2>
+                <p>Halo! Saya <strong>Setyo Nugroho</strong>, seorang mahasiswa di <strong>Telkom University</strong>, Indonesia, yang memiliki gairah besar dalam dunia pengembangan perangkat lunak.</p>
+                <p>Fokus utama saya saat ini adalah mendalami ekosistem teknologi untuk menjadi seorang <strong>Full Stack Developer</strong> yang handal. Saya senang menjembatani sisi visual yang menarik dengan logika backend yang efisien.</p>
+                <div class="about-info">
+                    <div class="info-item">
+                        <span>LOKASI</span>
+                        <p>Purwokerto, Indonesia</p>
+                    </div>
+                    <div class="info-item">
+                        <span>PENDIDIKAN</span>
+                        <p>Telkom University</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="container">
+            <h2 class="section-title">Karya Terbaru</h2>
+            <div class="portfolio-grid">
                 
-                <div class="skills-grid">
-                    <div class="skill-tag">HTML5</div>
-                    <div class="skill-tag">CSS3</div>
-                    <div class="skill-tag">JavaScript</div>
-                    <div class="skill-tag">React</div>
-                    <div class="skill-tag">Node.js</div>
-                    <div class="skill-tag">UI/UX</div>
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="gambar/projek-1.jpg" alt="Website E-Commerce">
+                    </div>
+                    <div class="card-content">
+                        <h3>Website E-Commerce</h3>
+                        <p>Platform belanja online dengan fitur pembayaran otomatis.</p>
+                        <button class="btn btn-primary" style="font-size: 0.8rem;" onclick="openProject(1)">Lihat Detail</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="projects" class="section reveal">
-        <h2 class="section-title">Karya Saya</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="card-image project1-bg">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="card-info">
-                    <h3>E-Commerce Dashboard</h3>
-                    <p>Sistem manajemen toko online dengan analisis data real-time.</p>
-                    <div class="card-links">
-                        <a href="#">Demo</a>
-                        <a href="#">Github</a>
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="gambar/projek-2.jpg" alt="Aplikasi Mobile">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aplikasi Mobile</h3>
+                        <p>Aplikasi manajemen tugas harian berbasis Android & iOS.</p>
+                        <button class="btn btn-primary" style="font-size: 0.8rem;" onclick="openProject(2)">Lihat Detail</button>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="card-image project2-bg">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="card-info">
-                    <h3>Aplikasi Kampus</h3>
-                    <p>Mobile app untuk jadwal kuliah dan absensi mahasiswa Tel-U.</p>
-                    <div class="card-links">
-                        <a href="#">Demo</a>
-                        <a href="#">Github</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="card-image project3-bg">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <div class="card-info">
-                    <h3>Web Game Sederhana</h3>
-                    <p>Permainan interaktif berbasis browser menggunakan Canvas API.</p>
-                    <div class="card-links">
-                        <a href="#">Demo</a>
-                        <a href="#">Github</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="contact" class="section reveal">
-        <h2 class="section-title">Hubungi Saya</h2>
-        <div class="contact-wrapper">
-            <p>Tertarik bekerja sama atau sekadar menyapa? Kirimkan pesan!</p>
-            <a href="mailto:emailanda@student.telkomuniversity.ac.id" class="btn-main">Kirim Email</a>
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="gambar/projek-3.jpg" alt="Fotografi Produk">
+                    </div>
+                    <div class="card-content">
+                        <h3>Fotografi Produk</h3>
+                        <p>Koleksi foto produk profesional untuk klien F&B.</p>
+                        <button class="btn btn-primary" style="font-size: 0.8rem;" onclick="openProject(3)">Lihat Detail</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Tertarik Bekerja Sama?</h2>
+                <p style="color: var(--text-muted); margin: 20px 0;">Mari ciptakan sesuatu yang luar biasa bersama.</p>
+                <a href="#" onclick="openWhatsApp()" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Hubungi Saya Sekarang
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Portofolio Saya. Dibuat dengan sepenuh hati.</p>
+        </footer>
+    </div>
+
+    <div id="project-detail-view">
+        <div class="container">
+            <div class="detail-header">
+                <h2 id="detail-title">Judul Proyek</h2>
+                <button class="btn btn-outline" onclick="closeProject()">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+            </div>
             
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="detail-content">
+            <img id="main-detail-image" src="" alt="Detail Proyek" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    
+            <div class="tech-stack" id="detail-tech">
+             </div>
+    
+                </div>
+
+                <div class="detail-text-area">
+                    <p id="detail-desc">Deskripsi lengkap proyek akan muncul di sini.</p>
+                    <br>
+                    <h3>Tantangan & Solusi</h3>
+                    <p>Dalam proyek ini, tantangan utamanya adalah mengoptimalkan performa agar tetap ringan meski memuat banyak data...</p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Created with <i class="fas fa-heart"></i> by Setyo.</p>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
