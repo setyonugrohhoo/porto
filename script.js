@@ -1,74 +1,110 @@
-// 1. Custom Cursor Logic
-const cursor = document.querySelector('.cursor');
-const cursor2 = document.querySelector('.cursor2');
+// --- 1. CONFIGURATION (GANTI DATA DI SINI) ---
+const myName = "Setyo Nugroho"; // Ganti dengan nama Anda
+const myPhone = "6281353927663"; // Ganti NO WA (format: 628xxx tanpa +)
+const waMessage = "Halo, saya melihat portofolio Anda dan tertarik untuk berdiskusi.";
 
-document.addEventListener('mousemove', function(e){
-    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
-});
+// Set Nama di HTML
+document.getElementById('myName').innerText = myName;
 
-// Hover Effect pada Link (Memperbesar Kursor)
-const links = document.querySelectorAll('a, .btn-main');
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        cursor2.classList.add('hover-active');
-        cursor2.style.width = '60px';
-        cursor2.style.height = '60px';
-    });
-    link.addEventListener('mouseleave', () => {
-        cursor2.classList.remove('hover-active');
-        cursor2.style.width = '40px';
-        cursor2.style.height = '40px';
-    });
-});
+// --- 2. DATA PROYEK (Simulasi Database) ---
+// --- Update DATA PROYEK dengan Link Gambar ---
+const projects = {
+    1: {
+        title: "Website E-Commerce Modern",
+        tech: ["HTML5", "CSS3", "JavaScript", "PHP"],
+        image: "gambar/projek-1.jpg", // Nama file gambar proyek 1
+        desc: "Ini adalah proyek website toko online full-stack. Pengunjung dapat melakukan checkout, pembayaran via API gateway, dan admin panel untuk mengelola stok."
+    },
+    2: {
+        title: "Aplikasi Manajemen Tugas",
+        tech: ["React Native", "Firebase", "Redux"],
+        image: "gambar/projek-2.jpg", // Nama file gambar proyek 2
+        desc: "Aplikasi mobile produktivitas yang membantu pengguna mengatur jadwal harian. Dilengkapi fitur notifikasi push dan sinkronisasi cloud real-time."
+    },
+    3: {
+        title: "Sesi Fotografi Komersial",
+        tech: ["Sony Alpha", "Lightroom", "Photoshop"],
+        image: "gambar/projek-3.jpg", // Nama file gambar proyek 3
+        desc: "Sesi foto untuk brand makanan lokal. Fokus pada pencahayaan natural dan color grading yang menggugah selera untuk kebutuhan media sosial."
+    }
+};
 
-// 2. Typing Effect pada Hero Section
-const textElement = document.querySelector('.typing-text');
-const words = ["Membangun Web Modern.", "Mahasiswa Telkom Univ.", "Suka Koding & Desain."];
-let wordIndex = 0;
+// --- 3. FUNCTION WHATSAPP ---
+function openWhatsApp() {
+    const url = `https://wa.me/${myPhone}?text=${encodeURIComponent(waMessage)}`;
+    window.open(url, '_blank');
+}
+
+// --- 4. FUNCTION TYPING EFFECT ---
+const textElement = document.getElementById('typing-element');
+// --- Update Bagian Phrases (Baris 33-an) ---
+const phrases = [
+    "Mahasiswa Telkom University", 
+    "Aspiring Full Stack Developer", 
+    "Tech Enthusiast"
+];
+let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
-function typeEffect() {
-    const currentWord = words[wordIndex];
+function type() {
+    const currentPhrase = phrases[phraseIndex];
     
     if (isDeleting) {
-        textElement.textContent = currentWord.substring(0, charIndex--);
+        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
     } else {
-        textElement.textContent = currentWord.substring(0, charIndex++);
+        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 100 : 200;
-
-    if (!isDeleting && charIndex === currentWord.length) {
+    if (!isDeleting && charIndex === currentPhrase.length) {
         isDeleting = true;
-        typeSpeed = 2000; // Pause sebelum menghapus
+        setTimeout(type, 2000); // Tunggu sebelum menghapus
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
-    }
-
-    setTimeout(typeEffect, typeSpeed);
-}
-
-// Jalankan typing effect saat halaman dimuat
-document.addEventListener('DOMContentLoaded', typeEffect);
-
-// 3. Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.reveal');
-
-function revealOnScroll() {
-    for (let i = 0; i < revealElements.length; i++) {
-        let windowHeight = window.innerHeight;
-        let elementTop = revealElements[i].getBoundingClientRect().top;
-        let revealPoint = 150;
-
-        if (elementTop < windowHeight - revealPoint) {
-            revealElements[i].classList.add('active');
-        } else {
-            revealElements[i].classList.remove('active');
-        }
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, 500);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 100);
     }
 }
+document.addEventListener('DOMContentLoaded', type);
 
-window.addEventListener('scroll', revealOnScroll);
+// --- 5. FUNCTION BUKA/TUTUP TAMPILAN BARU (MODAL) ---
+const mainView = document.getElementById('main-view');
+const detailView = document.getElementById('project-detail-view');
+
+function openProject(id) {
+    const data = projects[id];
+    
+    // 1. Isi data teks
+    document.getElementById('detail-title').innerText = data.title;
+    document.getElementById('detail-desc').innerText = data.desc;
+    
+    // 2. GANTI GAMBAR SECARA DINAMIS
+    const detailImg = document.getElementById('main-detail-image');
+    if (detailImg) {
+        detailImg.src = data.image;
+        detailImg.alt = data.title;
+    }
+
+    // 3. Render Tech Stack (sama seperti sebelumnya)
+    const techContainer = document.getElementById('detail-tech');
+    techContainer.innerHTML = ""; 
+    data.tech.forEach(tech => {
+        let span = document.createElement('span');
+        span.innerText = tech;
+        techContainer.appendChild(span);
+    });
+
+    // 4. Ganti Tampilan
+    mainView.style.display = 'none';
+    detailView.style.display = 'block';
+    window.scrollTo(0,0);
+}
+
+function closeProject() {
+    detailView.style.display = 'none';
+    mainView.style.display = 'block';
+}
