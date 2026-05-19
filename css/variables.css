@@ -1,0 +1,46 @@
+/* css/variables.css */
+:root {
+  /* ── Colors ── */
+  --bg-deep:    #04080F;
+  --bg-dark:    #080D18;
+  --bg-card:    #0C1220;
+  --bg-card2:   #101828;
+  --surface:    #141E30;
+
+  --cyan:       #00F5FF;
+  --cyan-dim:   rgba(0, 245, 255, 0.15);
+  --cyan-glow:  rgba(0, 245, 255, 0.4);
+  --purple:     #A855F7;
+  --purple-dim: rgba(168, 85, 247, 0.15);
+  --green:      #00FF88;
+  --green-dim:  rgba(0, 255, 136, 0.15);
+  --red:        #FF3366;
+  --yellow:     #FFD700;
+
+  --text-primary:   #E8F4FF;
+  --text-secondary: #7A8FA8;
+  --text-dim:       #3D5068;
+
+  --border:     rgba(0, 245, 255, 0.12);
+  --border-mid: rgba(0, 245, 255, 0.25);
+
+  --accent: var(--cyan);
+
+  /* ── Typography ── */
+  --font-display: 'Orbitron', monospace;
+  --font-mono:    'JetBrains Mono', monospace;
+  --font-body:    'Syne', sans-serif;
+
+  /* ── Spacing ── */
+  --section-pad: 7rem 0;
+  --container-w: 1200px;
+
+  /* ── Effects ── */
+  --glow-cyan:   0 0 20px rgba(0,245,255,0.5), 0 0 60px rgba(0,245,255,0.2);
+  --glow-purple: 0 0 20px rgba(168,85,247,0.5), 0 0 60px rgba(168,85,247,0.2);
+  --card-shadow: 0 4px 40px rgba(0,0,0,0.6);
+
+  /* ── Transitions ── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

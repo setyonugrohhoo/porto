@@ -1,0 +1,34 @@
+/* css/matrix.css */
+#matrix-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#matrix-canvas.active { opacity: 1; pointer-events: all; }
+
+#matrix-exit {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8001;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  background: rgba(0,0,0,0.8);
+}
+
+#matrix-exit.active { opacity: 1; visibility: visible; }
+#matrix-exit:hover  { background: var(--green-dim); }

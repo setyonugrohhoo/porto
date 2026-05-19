@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setyo Nugroho — System Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/loading.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/terminal.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+  <link rel="stylesheet" href="css/stats.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/ai-assistant.css" />
+  <link rel="stylesheet" href="css/matrix.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ LOADING SCREEN ═══════════════════════════════ -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-logo">SN</div>
+      <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+      <div class="loading-text" id="loading-text">Initializing portfolio...</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ CURSOR GLOW ═══════════════════════════════ -->
+  <div id="cursor-glow"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-brand">SN<span class="blink">_</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#terminal">TERMINAL</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <div class="nav-sys">
+      <span class="sys-item" id="nav-cpu">CPU <span class="sys-val" id="cpu-val">--</span>%</span>
+      <span class="sys-item" id="nav-ram">RAM <span class="sys-val" id="ram-val">--</span>%</span>
+      <span class="sys-item online-dot">● ONLINE</span>
+    </div>
+    <button class="nav-hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO SECTION ═══════════════════════════════ -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+
+    <div class="hero-content">
+      <div class="boot-sequence" id="boot-seq">
+        <p class="boot-line" data-delay="0">$ Initializing system...</p>
+        <p class="boot-line" data-delay="600">$ Loading portfolio modules...</p>
+        <p class="boot-line" data-delay="1200">$ Mounting components...</p>
+        <p class="boot-line" data-delay="1800">$ <span class="success">ACCESS GRANTED.</span></p>
+        <p class="boot-line" data-delay="2400">$ Welcome, visitor.</p>
+      </div>
+
+      <div class="hero-main" id="hero-main">
+        <h1 class="hero-name">SETYO<br/><span>NUGROHO</span></h1>
+        <div class="hero-roles">
+          <span class="role-prefix">//</span>
+          <span class="hero-typewriter" id="typewriter"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary magnetic">
+            <span>EXPLORE SYSTEM</span>
+          </a>
+          <a href="#terminal" class="btn-outline magnetic">
+            <span>OPEN TERMINAL</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-hud">
+        <div class="hud-item">
+          <span class="hud-label">LOCAL TIME</span>
+          <span class="hud-value" id="realtime-clock">--:--:--</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">STATUS</span>
+          <span class="hud-value green">ONLINE</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">LOCATION</span>
+          <span class="hud-value">ID / JAVA</span>
+        </div>
+      </div>
+
+      <button class="music-toggle" id="music-toggle" title="Toggle Ambience">♪</button>
+      <button class="matrix-toggle" id="matrix-toggle" title="Enter Void Mode">ENTER VOID MODE</button>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ ABOUT SECTION ═══════════════════════════════ -->
+  <section id="about" class="section reveal">
+    <div class="section-label">01 // WHO AM I</div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="avatar-wrap">
+            <div class="hologram-ring"></div>
+            <div class="avatar-inner">SN</div>
+            <div class="hologram-scan"></div>
+          </div>
+          <div class="avatar-status">
+            <span class="pulse-dot"></span>
+            SYSTEM ACTIVE
+          </div>
+        </div>
+        <div class="about-right">
+          <h2 class="section-title">PROFILE<span class="accent">.</span>JSON</h2>
+          <div class="biocard">
+            <div class="bio-row"><span class="bio-key">Name</span><span class="bio-sep">:</span><span class="bio-val">Setyo Nugroho</span></div>
+            <div class="bio-row"><span class="bio-key">Focus</span><span class="bio-sep">:</span><span class="bio-val">Web Development</span></div>
+            <div class="bio-row"><span class="bio-key">Speciality</span><span class="bio-sep">:</span><span class="bio-val">Frontend + Backend</span></div>
+            <div class="bio-row"><span class="bio-key">Stack</span><span class="bio-sep">:</span><span class="bio-val">HTML, CSS, JS, Java, Spring Boot</span></div>
+            <div class="bio-row"><span class="bio-key">Status</span><span class="bio-sep">:</span><span class="bio-val green">Building Digital Experiences</span></div>
+            <div class="bio-row"><span class="bio-key">Available</span><span class="bio-sep">:</span><span class="bio-val cyan">Open for Projects</span></div>
+          </div>
+          <div class="about-quote">
+            <span class="quote-mark">"</span>
+            Gua suka bikin sesuatu yang bukan cuma jalan,
+            tapi juga punya rasa pas dipake.
+            <span class="quote-mark">"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SKILLS SECTION ═══════════════════════════════ -->
+  <section id="skills" class="section reveal">
+    <div class="section-label">02 // TECH ARSENAL</div>
+    <div class="container">
+      <h2 class="section-title">SKILLS<span class="accent">.</span>SYS</h2>
+      <canvas id="radar-canvas"></canvas>
+      <div class="skills-grid">
+        <!-- chips are rendered by js/skills.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ TERMINAL SECTION ═══════════════════════════════ -->
+  <section id="terminal" class="section reveal">
+    <div class="section-label">03 // INTERACTIVE TERMINAL</div>
+    <div class="container">
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+          <span class="t-title">setyo@portfolio:~</span>
+        </div>
+        <div class="terminal-body" id="terminal-output">
+          <p class="t-line">Welcome to Setyo's Portfolio Terminal v1.0</p>
+          <p class="t-line dim">Type <span class="cmd-hint">help</span> to see available commands.</p>
+          <p class="t-line">─────────────────────────────────────</p>
+        </div>
+        <div class="terminal-input-row">
+          <span class="t-prompt">setyo@portfolio:~$</span>
+          <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type command..." />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ PROJECTS SECTION ═══════════════════════════════ -->
+  <section id="projects" class="section reveal">
+    <div class="section-label">04 // ACTIVE PROJECTS</div>
+    <div class="container">
+      <h2 class="section-title">PROJECTS<span class="accent">.</span>DB</h2>
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 — Absensi -->
+        <div class="project-card" data-project="absensi">
+          <div class="card-header">
+            <div class="card-dots"><span></span><span></span><span></span></div>
+            <div class="card-tag">ACTIVE</div>
+          </div>
+          <div class="card-screen">
+            <div class="mockup-dash">
+              <div class="dash-stat"><span class="ds-num">324</span><span class="ds-lbl">Mahasiswa</span></div>
+              <div class="dash-stat green"><span class="ds-num">287</span><span class="ds-lbl">Hadir</span></div>
+              <div class="dash-stat yellow"><span class="ds-num">25</span><span class="ds-lbl">Izin</span></div>
+              <div class="dash-stat red"><span class="ds-num">12</span><span class="ds-lbl">Alpha</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SISTEM ABSENSI MAHASISWA</h3>
+            <p class="card-desc">Dashboard kehadiran dengan scan QR, login admin, export Excel & statistik realtime.</p>
+            <div class="card-stack">
+              <span>Java</span><span>Spring Boot</span><span>MySQL</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="card-status completed">● COMPLETED</span>
+              <button class="card-btn" onclick="openProject('absensi')">VIEW →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 — Calculator -->
+        <div class="project-card" data-project="calculator">
+          <div class="card-header">
+            <div class="card-dots"><span></span><span></span><span></span></div>
+            <div class="card-tag purple">FEATURED</div>
+          </div>
+          <div class="card-screen">
+            <div class="calc-preview">
+              <div class="calc-display">1,337.00</div>
+              <div class="calc-keys">
+                <span>7</span><span>8</span><span>9</span><span class="op">÷</span>
+                <span>4</span><span>5</span><span>6</span><span class="op">×</span>
+                <span>1</span><span>2</span><span>3</span><span class="op">−</span>
+                <span class="zero">0</span><span>.</span><span class="op eq">=</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SMART CALCULATOR</h3>
+            <p class="card-desc">Glassmorphism scientific calculator dengan history, keyboard support, currency convert & graph mode.</p>
+            <div class="card-stack">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="card-status completed">● COMPLETED</span>
+              <button class="card-btn" onclick="openProject('calculator')">VIEW →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 — Topup -->
+        <div class="project-card" data-project="topup">
+          <div class="card-header">
+            <div class="card-dots"><span></span><span></span><span></span></div>
+            <div class="card-tag neon">NEON</div>
+          </div>
+          <div class="card-screen gaming-screen">
+            <div class="game-logos">
+              <div class="gl ml">ML</div>
+              <div class="gl vl">VL</div>
+              <div class="gl ff">FF</div>
+              <div class="gl gi">GI</div>
+            </div>
+            <div class="gaming-text">GAME TOPUP STORE</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">GAME TOPUP STORE</h3>
+            <p class="card-desc">Platform top-up gaming dengan MLBB, Valorant, FF & Genshin. Fitur invoice, promo banner & fake realtime transaction.</p>
+            <div class="card-stack">
+              <span>HTML</span><span>CSS</span><span>JS</span><span>PHP</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="card-status wip">● IN PROGRESS</span>
+              <button class="card-btn" onclick="openProject('topup')">VIEW →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAIL OVERLAY -->
+  <div id="project-overlay" class="project-overlay">
+    <button class="overlay-close" onclick="closeProject()">✕ CLOSE</button>
+    <div class="overlay-content" id="overlay-content"></div>
+  </div>
+
+  <!-- ═══════════════════════════════ TIMELINE SECTION ═══════════════════════════════ -->
+  <section id="timeline" class="section reveal">
+    <div class="section-label">05 // EXPERIENCE</div>
+    <div class="container">
+      <h2 class="section-title">JOURNEY<span class="accent">.</span>LOG</h2>
+      <div class="timeline">
+        <div class="tl-item reveal-left">
+          <div class="tl-year">2023</div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <h4>Started Learning Web</h4>
+            <p>Mulai belajar HTML, CSS, dan JavaScript. Membangun fondasi dengan ratusan jam eksperimen.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-right">
+          <div class="tl-year">2024</div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <h4>Built First Fullstack App</h4>
+            <p>Membuat Sistem Absensi Mahasiswa menggunakan Java + Spring Boot + MySQL. First production app.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-left">
+          <div class="tl-year">2025</div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <h4>Exploring UI/UX & System Design</h4>
+            <p>Deep dive ke dunia desain antarmuka. Membangun aplikasi yang tidak hanya fungsional tapi juga indah.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-right active">
+          <div class="tl-year">2026</div>
+          <div class="tl-dot glow"></div>
+          <div class="tl-card">
+            <h4>Building Advanced Portfolio</h4>
+            <p>Merancang portfolio sistem-level dengan terminal interaktif, AI assistant, dan efek visual tingkat lanjut.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ STATS SECTION ═══════════════════════════════ -->
+  <section id="stats" class="section reveal">
+    <div class="section-label">06 // SYSTEM STATS</div>
+    <div class="container">
+      <h2 class="section-title">ANALYTICS<span class="accent">.</span>LIVE</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">◈</div>
+          <div class="stat-num" data-target="12">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⌨</div>
+          <div class="stat-num" data-target="847">0</div>
+          <div class="stat-label">Github Commits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏱</div>
+          <div class="stat-num" data-target="2400">0</div>
+          <div class="stat-label">Hours Coding</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">☕</div>
+          <div class="stat-num" data-target="999">0</div>
+          <div class="stat-label">Coffee Consumed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACT SECTION ═══════════════════════════════ -->
+  <section id="contact" class="section reveal">
+    <div class="section-label">07 // OPEN CONNECTION</div>
+    <div class="container">
+      <h2 class="section-title">TRANSMIT<span class="accent">.</span>MSG</h2>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <div class="contact-block">
+            <span class="cb-label">// EMAIL</span>
+            <a class="cb-value" href="mailto:setyo@example.com">setyo@example.com</a>
+          </div>
+          <div class="contact-block">
+            <span class="cb-label">// GITHUB</span>
+            <a class="cb-value" href="#">github.com/setyo</a>
+          </div>
+          <div class="contact-block">
+            <span class="cb-label">// LINKEDIN</span>
+            <a class="cb-value" href="#">linkedin.com/in/setyo</a>
+          </div>
+          <div class="contact-encrypt">
+            <div class="enc-bar"></div>
+            <span>END-TO-END ENCRYPTED</span>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <div class="form-panel">
+            <div class="form-panel-header">
+              <span>ENCRYPTED TRANSMISSION PANEL</span>
+              <span class="panel-status">● SECURE</span>
+            </div>
+            <div class="form-group">
+              <label>NAME_INPUT</label>
+              <input type="text" id="f-name" placeholder="Your name..." />
+            </div>
+            <div class="form-group">
+              <label>EMAIL_INPUT</label>
+              <input type="email" id="f-email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label>MESSAGE_PAYLOAD</label>
+              <textarea id="f-msg" rows="5" placeholder="Type your message..."></textarea>
+            </div>
+            <button class="transmit-btn" id="transmit-btn">
+              <span id="transmit-text">TRANSMIT MESSAGE</span>
+            </button>
+            <div class="transmit-status" id="transmit-status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">SETYO<span class="accent">.</span>SYS</div>
+      <div class="footer-quote">
+        "Built from curiosity, pressure, and countless late nights."
+      </div>
+      <div class="footer-links">
+        <a href="#hero">TOP ↑</a>
+        <a href="mailto:setyo@example.com">Email</a>
+        <a href="#">GitHub</a>
+      </div>
+      <div class="footer-copy">© 2026 Setyo Nugroho — All Systems Operational</div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════ AI ASSISTANT ═══════════════════════════════ -->
+  <div id="ai-assistant">
+    <button class="ai-toggle" id="ai-toggle">
+      <span class="ai-icon">◈</span>
+      <span class="ai-label">AI</span>
+    </button>
+    <div class="ai-panel" id="ai-panel">
+      <div class="ai-panel-header">
+        <span>SN // AI ASSISTANT</span>
+        <button onclick="document.getElementById('ai-panel').classList.remove('open')">✕</button>
+      </div>
+      <div class="ai-messages" id="ai-messages">
+        <div class="ai-msg bot">Halo! Aku asisten portfolio Setyo. Coba tanya: <em>"siapa setyo"</em>, <em>"project apa aja"</em>, atau <em>"contact"</em></div>
+      </div>
+      <div class="ai-input-row">
+        <input type="text" id="ai-input" placeholder="Ask me anything..." />
+        <button id="ai-send">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ MATRIX OVERLAY ═══════════════════════════════ -->
+  <canvas id="matrix-canvas"></canvas>
+  <div id="matrix-exit" onclick="exitMatrix()">✕ EXIT VOID</div>
+
+  <!-- ═══════════════════════════════ AUDIO ═══════════════════════════════ -->
+  <audio id="ambience" loop>
+    <!-- You can add an actual ambience audio file here -->
+  </audio>
+
+  <!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+  <script src="js/loading.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/ai-assistant.js"></script>
+  <script src="js/matrix.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/magnetic.js"></script>
+  <script src="js/easter-egg.js"></script>
+</body>
+</html>

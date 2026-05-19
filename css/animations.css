@@ -1,0 +1,100 @@
+/* css/animations.css */
+
+/* ── Cursor Glow ── */
+#cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,245,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.3s ease;
+}
+
+#cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--cyan);
+  transition: transform 0.05s ease;
+}
+
+/* ── Reveal on Scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Magnetic Button ── */
+.magnetic {
+  transition: transform 0.3s var(--ease-spring);
+}
+
+/* ── Section Backgrounds ── */
+#about   { background: linear-gradient(180deg, var(--bg-deep), var(--bg-dark)); }
+#skills  { background: var(--bg-dark); }
+#terminal { background: linear-gradient(180deg, var(--bg-dark), var(--bg-deep)); }
+#projects { background: var(--bg-deep); }
+#timeline { background: var(--bg-dark); }
+#stats    { background: var(--bg-deep); }
+#contact  { background: var(--bg-dark); }
+
+/* ── Glitch Effect ── */
+@keyframes glitch {
+  0%   { clip-path: inset(0 0 95% 0); transform: translate(-3px, 0); }
+  25%  { clip-path: inset(40% 0 50% 0); transform: translate(3px, 0); }
+  50%  { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 0); }
+  75%  { clip-path: inset(20% 0 75% 0); transform: translate(2px, 0); }
+  100% { clip-path: inset(0 0 95% 0); transform: translate(0, 0); }
+}
+
+/* ── Scan Line (decorative) ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,245,255,0.01) 2px,
+    rgba(0,245,255,0.01) 4px
+  );
+  pointer-events: none;
+  z-index: 9990;
+}

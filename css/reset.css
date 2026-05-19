@@ -1,0 +1,9 @@
+/* css/reset.css */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; }
+ul { list-style: none; }
+input, textarea { outline: none; border: none; background: none; font-family: inherit; }
+img { max-width: 100%; display: block; }

@@ -1,0 +1,174 @@
+/* css/about.css */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ── Avatar ── */
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologram-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  animation: rotate 8s linear infinite;
+  opacity: 0.4;
+}
+
+.hologram-ring::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed var(--cyan);
+  animation: rotate-rev 5s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes rotate     { to { transform: rotate(360deg); } }
+@keyframes rotate-rev { to { transform: rotate(-360deg); } }
+
+.avatar-inner {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-card), var(--surface));
+  border: 2px solid var(--border-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--cyan);
+  text-shadow: var(--glow-cyan);
+  position: relative;
+  z-index: 1;
+}
+
+.hologram-scan {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  border-radius: 50%;
+  animation: scan 3s ease-in-out infinite;
+  opacity: 0.7;
+  z-index: 2;
+  border-radius: 0;
+}
+
+@keyframes scan {
+  0%   { top: 0; }
+  50%  { top: calc(100% - 4px); }
+  100% { top: 0; }
+}
+
+.avatar-status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* ── Biocard ── */
+.biocard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.biocard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--cyan), var(--purple));
+}
+
+.bio-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,245,255,0.05);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.bio-row:last-child { border-bottom: none; }
+
+.bio-key {
+  color: var(--text-dim);
+  min-width: 90px;
+  letter-spacing: 0.05em;
+}
+
+.bio-sep { color: var(--cyan); }
+
+.bio-val {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.about-quote {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 2px solid var(--cyan);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 2rem;
+  color: var(--cyan);
+  line-height: 0;
+  vertical-align: -0.4em;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-left { order: -1; }
+}

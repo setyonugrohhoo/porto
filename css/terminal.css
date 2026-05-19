@@ -1,0 +1,102 @@
+/* css/terminal.css */
+.terminal-window {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #090D17;
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0,245,255,0.08), var(--card-shadow);
+}
+
+.terminal-bar {
+  background: #141C2E;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.t-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.t-dot.red    { background: #FF5F57; }
+.t-dot.yellow { background: #FFBD2E; }
+.t-dot.green  { background: #28C840; }
+
+.t-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-left: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  min-height: 280px;
+  max-height: 380px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.terminal-body::-webkit-scrollbar { width: 3px; }
+.terminal-body::-webkit-scrollbar-thumb { background: var(--cyan); }
+
+.t-line {
+  display: block;
+  padding: 0.1rem 0;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } }
+
+.t-line.dim  { color: var(--text-dim); }
+.t-line.cmd  { color: var(--cyan); }
+.t-line.success { color: var(--green); }
+.t-line.error   { color: var(--red); }
+.t-line.info    { color: var(--yellow); }
+
+.cmd-hint {
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: #0A0F1A;
+}
+
+.t-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  caret-color: var(--cyan);
+}
+
+.terminal-input::placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}

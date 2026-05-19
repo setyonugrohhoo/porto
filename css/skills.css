@@ -1,0 +1,81 @@
+/* css/skills.css */
+#radar-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-chip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.9rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: default;
+  transition: all 0.3s var(--ease-out);
+  overflow: hidden;
+}
+
+.skill-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cyan-dim);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-chip:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-4px);
+}
+
+.skill-chip:hover::before { opacity: 1; }
+
+.skill-chip .chip-level {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  display: none;
+  letter-spacing: 0.05em;
+}
+
+.skill-chip:hover .chip-level {
+  display: block;
+  color: var(--cyan);
+  opacity: 0.8;
+}
+
+.skill-chip .chip-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Categories */
+.skill-chip[data-cat="frontend"]:hover { border-color: var(--cyan); box-shadow: var(--glow-cyan); }
+.skill-chip[data-cat="backend"]:hover  { border-color: var(--purple); box-shadow: var(--glow-purple); color: var(--purple); }
+.skill-chip[data-cat="tool"]:hover     { border-color: var(--green); box-shadow: 0 0 20px rgba(0,255,136,0.5); color: var(--green); }
+.skill-chip[data-cat="db"]:hover       { border-color: var(--yellow); box-shadow: 0 0 20px rgba(255,215,0,0.4); color: var(--yellow); }
